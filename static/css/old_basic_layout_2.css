@@ -1,0 +1,164 @@
+.gradient_container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 91px;
+  padding-left: 140px;
+  padding-right: 20px;
+  padding-bottom: 8px;
+  padding-top: 19px;
+  background: linear-gradient(90.27deg, #003300 32.8%, #005C00 65.06%, #006600 75.17%);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.gendis_logo {
+  /* position: fixed; */
+  width: 390px;
+  /* width: 416px; */
+  /* height: 79px; */
+  /* left: 140px;
+  top: 20px; */
+  margin-right: 70px;
+}
+
+.header_dropdown {
+  /* position: fixed; */
+  width: 200px;
+  height: 42px;
+  vertical-align: top;
+  margin-top: 20px;
+  /* left: 640px; */
+  /* top: 38px; */
+
+  padding-left: 10px;
+
+  background: #FFFFFF;
+  border-radius: 12px;
+
+  border-style: none;
+
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  /* line-height: 20px; */
+
+  color: #A0B0A0;
+}
+
+.form_input {
+  display: inline-block;
+  width: 350px;
+}
+.header_input_box {
+  width: 350px;
+  height: 40px;
+  vertical-align: top;
+  /* left: 860px; */
+  /* top: 38px; */
+
+  padding-left: 10px;
+
+  background: #FFFFFF;
+  border-radius: 12px;
+
+  border-style: none;
+
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  /* line-height: 20px; */
+
+  color: #A0B0A0;
+}
+
+.header_dropdown_options {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: #424343;
+}
+
+.submit_button_for_input_box {
+  width: 90px;
+  height: 42px;
+  vertical-align: top;
+  /* left: 1131px;
+  top: 38px; */
+
+  background: #FFFFDB;
+  box-shadow: -1px 1px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 11px;
+  border-style: none;
+}
+
+.search_icon_for_input_box {
+  width: 21px;
+  height: 21px;
+  vertical-align: top;
+  /* left: 1167px;
+  top: 50px; */
+
+  background: #FFFFDB;
+}
+
+.nav_bar {
+  position: fixed;
+  top: 117px;
+  left: 0px;
+  right: 0px;
+  height: 40px;
+  background: #FFFFDB;
+}
+
+.nav_bar_list {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-left: 350px;
+}
+.nav_bar_list li {
+  display: inline-block;
+}
+
+.nav_bar_button {
+  padding-top: 8px;
+  padding-bottom: 9px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-right: 10px;
+
+  background-color: #FFFFDB;
+
+  border-radius: 11px;
+  border-style: none;
+
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 23px;
+
+  transition: background-color 0.15s,
+  color 0.15s;
+}
+
+.nav_bar_button:hover {
+  background-color: #003300;
+  color: #FFFFDB;
+}
+
+.nav_bar_button:active {
+  background-color: #006600;
+}
+
+.nav_bar_flex {
+  display: flex;
+  flex-direction: row;
+
+  background-color: #FFFFDB;
+}
