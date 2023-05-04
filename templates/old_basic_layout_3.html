@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Gendis 3.0</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/basic_layout_general.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/basic_layout_header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/dropdown.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/basic_layout_footer.css') }}">
+    {% block link_here %}{% endblock %}
+  </head>
+  <body>
+<!-- Header: Contains the gendis logo, dropdown, input box and nav bar -->
+    <header class="header">
+      <div class="gradient_container">
+        <div class="gendis_logo_div">
+          <a href="{{ url_for('home') }}"><img class="gendis_logo" src="{{ url_for('static',filename='img/gendis3.0_logo.png') }}" alt="Gendis 3.0"></a>
+        </div>
+        <div class="header_dropdown_div">
+          <select class="header_dropdown" name="dropdown_search">
+            <option value="" selected="selected" hidden="hidden">
+              Search for ...
+            </option>
+            <option value="keyword">search by keyword</option>
+            <option value="sf_id">search by SuperFamily id.</option>
+            <option value="sf_name">search by SuperFamily name</option>
+            <option value="pfam_ncbi_acc">search Pfam by NCBI acc. id.</option>
+            <option value="pfam_da">search Pfam by domain architecture</option>
+            <option value="scop_ncbi_acc">search SCOP by NCBI acc. id.</option>
+            <option value="scop_da">search SCOP by domain architecture</option>
+          </select>
+        </div>
+        <div class="header_input_box_div">
+          <input class="header_input_box" type="text" placeholder="Search SCOP ID, Taxa, Domain Architecture ...">
+          <button class="header_input_box_submit_button" type="button" name="button">
+            <img src="{{ url_for('static',filename='img/search_icon_green.png') }}" alt="Search Icon">
+          </button>
+        </div>
+      </div>
+<!-- Nav bar -->
+      <nav>
+        <a class="nav_bar_button" href="{{ url_for('home') }}">Home</a>
+        <div class="dropdown">
+          <button class="dropdown-button">
+            <div class="dropdown-button-text">
+              Browse by
+            </div>
+            <div class="dropdown-caret">
+              &#8227;
+            </div>
+          </button>
+          <div class="submenu-1 information-grid">
+            <div>
+              <div class="dropdown-heading">SCOP Hierarchy</div>
+              <div class="dropdown-links">
+                <a href="{{ url_for('browseby') }}">Superfamily</a>
+                <a href="#">Fold</a>
+                <a href="{{ url_for('_class') }}">Class</a>
+              </div>
+            </div>
+            <div>
+              <div class="dropdown-heading">Taxonomy</div>
+              <div class="dropdown-links">
+                <a href="#">Hierarchy</a>
+                <a href="#">Genome</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-button">
+            <div class="dropdown-button-text">
+              Tools
+            </div>
+            <div class="dropdown-caret">
+              &#8227;
+            </div>
+          </button>
+          <div id="tools-dropdown" class="submenu-1 information-grid">
+            <div class="dropdown-links">
+              <a href="{{ url_for('tools1') }}">Domain Architecture Predictions</a>
+              <a href="{{ url_for('tools2') }}">Align Domains from Genomes</a>
+              <a href="{{ url_for('tools3') }}">Align Sequences with Genomes</a>
+            </div>
+          </div>
+        </div>
+        <a class="nav_bar_button" href="/downloads">Download</a>
+        <a class="nav_bar_button" href="/help">Help</a>
+        <a class="nav_bar_button" href="https://www.ncbs.res.in/faculty/mini" target="_blank">CAPS</a>
+      </nav>
+    </header>
+<!-- Content starts here -->
+    {% block content %}{% endblock content %}
+<!-- Content ends here -->
+<!-- Footer here -->
+    <footer class="footer">
+      <div class="ncbs_logo_footer">
+        <img class="ncbs_logo" src="{{ url_for('static', filename='img/NCBS-Logo-small.jpg') }}" alt="NCBS Logo">
+      </div>
+      <div class="contact-info">
+        <p style="margin: 0; padding: 0"><strong>Contact:</strong> Prof. R. Sowdhamini - mini@ncbs.res.in</p>
+        <p style="margin: 0; padding: 0"><strong>Last Update:</strong> May 2023</p>
+      </div>
+    </footer>
+    <!-- <script type="text/javascript" src="{{ url_for('static',filename='js/basic_layout.js') }}"></script> -->
+    {% block script %}{% endblock script %}
+  </body>
+</html>

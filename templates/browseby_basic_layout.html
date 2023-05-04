@@ -1,0 +1,87 @@
+{% extends 'basic_layout.html' %}
+
+{% block link_here %}
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/browseby_basic_layout.css') }}">
+{% endblock link_here %}
+
+{% block content %}
+
+<div class="covers-everything">
+  <div class="row-one">
+    <div class="row-one-left">
+      Show
+      <button type="button">25</button>
+      entries
+    </div>
+    <form class="row-one-right">
+      <input type="text" placeholder="search here ...">
+      <button type="button">
+        <img src="{{ url_for('static',filename='img/search_icon_green.png') }}" alt="search icon">
+      </button>
+    </form>
+  </div>
+  <div class="row-two">
+    <div class="row-two-elements">
+      SCOP code
+    </div>
+    <div id="description" class="row-two-elements">
+      Description
+    </div>
+    <div class="row-two-elements">
+      Pfam DA
+    </div>
+    <div class="row-two-elements">
+      SCOP DA
+    </div>
+    <div data-single-word class="row-two-elements">
+      Genomes
+    </div>
+    <div class="row-two-elements">
+      SCOP class
+    </div>
+    <div class="row-two-elements">
+      SCOP fold
+    </div>
+    <div data-single-word class="row-two-elements">
+      Sequences
+    </div>
+    <div class="row-two-elements">
+      TP Sequences
+    </div>
+  </div>
+  <div class="box-one">
+    <table>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      <col>
+      {% for doc in coll %}
+        <tr>
+          <td>{{ doc.scop_code }}</td>
+          <td>{{ doc.description }}</td>
+          <td>{{ doc.pfam_da }}</td>
+          <td>{{ doc.scop_da }}</td>
+          <td>{{ doc.genomes }}</td>
+          <td>{{ doc.scop_class }}</td>
+          <td>{{ doc.scop_fold }}</td>
+          <td>{{ doc.sequences }}</td>
+          <td>{{ doc.tp_sequences }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="row-three">
+
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+  <script type="text/javascript" src="{{ url_for('static',filename='js/browseby_basic_layout.js') }}"></script>
+{% endblock script %}
