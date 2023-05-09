@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<!DOCTYPE TaxaSet PUBLIC "-//NLM//DTD Taxon, 14th January 2002//EN" "https://www.ncbi.nlm.nih.gov/entrez/query/DTD/taxon.dtd">
+<TaxaSet><Taxon>
+    <TaxId>100000</TaxId>
+    <ScientificName>Herbaspirillum sp. BA12</ScientificName>
+    <OtherNames>
+        <Synonym>Herbispirillum sp. BA12</Synonym>
+    </OtherNames>
+    <ParentTaxId>2624150</ParentTaxId>
+    <Rank>species</Rank>
+    <Division>Bacteria</Division>
+    <GeneticCode>
+        <GCId>11</GCId>
+        <GCName>Bacterial, Archaeal and Plant Plastid</GCName>
+    </GeneticCode>
+    <MitoGeneticCode>
+        <MGCId>0</MGCId>
+        <MGCName>Unspecified</MGCName>
+    </MitoGeneticCode>
+    <Lineage>cellular organisms; Bacteria; Proteobacteria; Betaproteobacteria; Burkholderiales; Oxalobacteraceae; Herbaspirillum; unclassified Herbaspirillum</Lineage>
+    <LineageEx>
+        <Taxon>
+            <TaxId>131567</TaxId>
+            <ScientificName>cellular organisms</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2</TaxId>
+            <ScientificName>Bacteria</ScientificName>
+            <Rank>superkingdom</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>1224</TaxId>
+            <ScientificName>Proteobacteria</ScientificName>
+            <Rank>phylum</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>28216</TaxId>
+            <ScientificName>Betaproteobacteria</ScientificName>
+            <Rank>class</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>80840</TaxId>
+            <ScientificName>Burkholderiales</ScientificName>
+            <Rank>order</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>75682</TaxId>
+            <ScientificName>Oxalobacteraceae</ScientificName>
+            <Rank>family</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>963</TaxId>
+            <ScientificName>Herbaspirillum</ScientificName>
+            <Rank>genus</Rank>
+        </Taxon>
+        <Taxon>
+            <TaxId>2624150</TaxId>
+            <ScientificName>unclassified Herbaspirillum</ScientificName>
+            <Rank>no rank</Rank>
+        </Taxon>
+    </LineageEx>
+    <CreateDate>1999/07/14 14:12:00</CreateDate>
+    <UpdateDate>2005/01/19 15:15:00</UpdateDate>
+    <PubDate>1999/09/05 01:00:00</PubDate>
+</Taxon>
+
+</TaxaSet>
