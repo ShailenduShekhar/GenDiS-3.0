@@ -22,11 +22,14 @@ from alive_progress import alive_bar
 '''
 class OperateOnTaxidFile:
     def __init__(self):
-        self.superfamilies_path = [ # should contain the path(s) to the directory containing individual directories of superfamilies
-         '/home/ibab/sem4/project/data_gendis_3.0/superfamilies/SMS/'   
-        ]
-        self.xmlfiles_path = '/home/ibab/sem4/project/data_gendis_3.0/taxdb_ncbi_sep22/efetch_xml_files2'
-        self.lineages_file = '/home/ibab/sem4/project/codes/sunburst_implementation/readyingTheData/superfamilyDataForSunburst/SMS/'
+        self.superfamilies_path = ['/home/mini/gendis/gendis_sep2022/all_alpha/SMS/', '/home/mini/gendis/gendis_sep2022/all_beta/SMS/', '/home/mini/gendis/gendis_sep2022/alpha_and_beta/SMS/', '/home/mini/gendis/gendis_sep2022/alpha_or_beta/SMS/', '/home/mini/gendis/gendis_sep2022/membrane_proteins/SMS/', '/home/mini/gendis/gendis_sep2022/multidomain_proteins/SMS/', '/home/mini/gendis/gendis_sep2022/small_proteins/SMS/', '/home/mini/gendis/gendis_sep2022/all_alpha/MMS/', '/home/mini/gendis/gendis_sep2022/all_beta/MMS/', '/home/mini/gendis/gendis_sep2022/alpha_and_beta/MMS/', '/home/mini/gendis/gendis_sep2022/alpha_or_beta/MMS/', '/home/mini/gendis/gendis_sep2022/membrane_proteins/MMS/', '/home/mini/gendis/gendis_sep2022/multidomain_proteins/MMS/', '/home/mini/gendis/gendis_sep2022/small_proteins/MMS/']
+        #[ # should contain the path(s) to the directory containing individual directories of superfamilies
+        # '/home/ibab/sem4/project/data_gendis_3.0/superfamilies/SMS/'   
+        #]
+        self.xmlfiles_path = '/home/mini/gendis/database/taxdb_ncbi_sep22/efetch_xml_files' 
+        #self.xmlfiles_path = '/home/ibab/sem4/project/data_gendis_3.0/taxdb_ncbi_sep22/efetch_xml_files2'
+        self.lineages_file = '/home/mini/gendis/GenDiS-3.0/data_collection/Sunburst-chart/superfamilyDataForSunburst/'
+        #self.lineages_file = '/home/ibab/sem4/project/codes/sunburst_implementation/readyingTheData/superfamilyDataForSunburst/SMS/'
         self.output_filename = ''
 
     def writeLineagesToFile(self,all_superfamily_taxons): # 'all_superfamily_taxons' is a 2D list; each element is a list
@@ -92,6 +95,7 @@ class OperateOnTaxidFile:
                 for entry in os.scandir(path_): # 'entry' is a directory/file in the 'path_'
                     if entry.is_dir(): # checks if the entry is a directory, which confirms if entry is a superfamily directory
                         taxid_file = f'{entry.path}/{entry.name}_da_out/{entry.name}_taxid.out' # path of taxid file inside the superfamily
+                        print(taxid_file)
                         if os.path.isfile(taxid_file): # checks if the taxid file exists or not
                             self.output_filename = f'{self.lineages_file}{entry.name}.csv'
                             self.openTaxidFile(taxid_file)

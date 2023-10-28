@@ -1,0 +1,96 @@
+.superfamily-heading {
+	font-size: 40px;
+	font-weight: 700;
+	color: #424343;
+}
+.contains-everything {
+	box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+	border-radius: 12px;
+	/* max-width: 1050px */
+}
+/* Style the container */
+.container {
+	padding: 20px;
+	border-top: none;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin: 20px;
+}
+
+/* Style the tabs */
+.nav-tabs {
+	margin-bottom: 15px;
+	background-color: #ffffff;
+	display: flex;
+	list-style: none;
+	padding: 0;
+	border-bottom: 2px solid #ccc;
+	border-top: #fff;
+}
+
+.nav-tabs li {
+	margin-right: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	/*border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;*/
+}
+
+.nav-tabs :not(.active) a {
+	border-bottom: 2px solid #ccc;
+}
+
+.nav-tabs a {
+	display: block;
+	padding: 10px 20px;
+	border: 1px solid #ccc;
+	border-top: none;
+	border-radius: 5px 5px 0 0;
+	text-decoration: none;
+	color: #333;
+	background-color: #fff;
+	position: relative;
+	top: 1px;
+	transition: background-color 0.2s;
+}
+
+.nav-tabs a:hover {
+	background-color: #f1f1f1;
+}
+
+.nav-tabs .active a {
+	background-color: #fff;
+	border-bottom: 2px solid #fff;
+}
+
+/* Style the tab content */
+.tab-content {
+	border: 1px solid #ccc;
+	border-radius: 0 0 5px 5px;
+	padding: 15px;
+	background-color: #fff;
+}
+
+/* Add more styling as needed for specific content within each tab */
+.tab-pane {
+	margin-top: 4px;
+}
+
+/* Example styling for the description table */
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table th,
+table td {
+	border: 1px solid #ccc;
+	padding: 8px;
+	text-align: left;
+}
+
+/* Additional styling for the chart */
+.chart {
+	width: 100%;
+}

@@ -1,0 +1,106 @@
+{% extends 'basic_layout.html' %}
+
+{% block link_here %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/browseby_basic_layout_bs.css') }}">
+{% endblock link_here %}
+
+{% block content %}
+<div class="container-sm">
+	<div class="row justify-content-center">
+		<div class="col-3 superfamily-heading">
+			{{ cl_code }}
+		</div>
+	</div>
+</div>
+<div class="container-sm my-3 px-5 py-3 contains-everything">
+	<div class="row pt-3 pb-4 px-1 justify-content-between align-items-center row-one">
+		<div class="col-3 row justify-content-center align-items-center">
+			<div class="col-3">
+				Show
+			</div>
+			<div class="col-5 select-show-items">
+				<select class="form-select form-select-sm" aria-label=".form-select-sm example">
+					<option>10</option>
+					<option value="1" selected>25</option>
+					<option value="2">50</option>
+					<option value="3">100</option>
+				</select>
+			</div>
+			<div class="col-4">
+				Entries
+			</div>
+		</div>
+		<div class="col-4">
+			<form>
+				<div class="input-group">
+					<input id="top-right-input" type="text" class="form-control search-input-box"
+						placeholder="Search Description" aria-label="Search" aria-describedby="button-addon2">
+					<!-- <button class="btn search_icon_btn" type="button" id="button-addon2">
+              <img class="search_icon" src="{{ url_for('static',filename='img/search_icon_green.png') }}" alt="search_icon">
+            </button> -->
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="col whole-table">
+		<table class="table table-borderless mt-4">
+			<thead>
+				<tr>
+					<td data-col="_id" data-order="asc" scope="col">
+						SCOP code
+						<img src="{{ url_for('static',filename='img/sorting_arrows.svg') }}" alt="sorting-arrow">
+					</td>
+					<td data-col="des" data-order="none" scope="col">
+						Description
+						<img src="{{ url_for('static',filename='img/sorting_arrows.svg') }}" alt="sorting-arrow">
+					</td>
+					<td data-col="pfam_da" data-order="none" scope="col">
+						Pfam DA
+						<img src="{{ url_for('static',filename='img/sorting_arrows.svg') }}" alt="sorting-arrow">
+					</td>
+					<td data-col="scop_da" data-order="none" scope="col">
+						SCOP DA
+						<img src="{{ url_for('static',filename='img/sorting_arrows.svg') }}" alt="sorting-arrow">
+					</td>
+					<td data-col="genomes" data-order="none" scope="col">
+						Genomes
+						<img src="{{ url_for('static',filename='img/sorting_arrows.svg') }}" alt="sorting-arrow">
+					</td>
+					<td data-col="scop_cl" data-order="none" scope="col">
+						SCOP class
+						<img src="{{ url_for('static',filename='img/sorting_arrows.svg') }}" alt="sorting-arrow">
+					</td>
+					<td data-col="scop_cf" data-order="none" scope="col">
+						SCOP fold
+						<img src="{{ url_for('static',filename='img/sorting_arrows.svg') }}" alt="sorting-arrow">
+					</td>
+					<td data-col="sequences" data-order="none" scope="col">
+						Sequences
+						<img src="{{ url_for('static',filename='img/sorting_arrows.svg') }}" alt="sorting-arrow">
+					</td>
+					<td data-col="tp_sequences" data-order="none" scope="col">
+						TP sequences
+						<img src="{{ url_for('static',filename='img/sorting_arrows.svg') }}" alt="sorting-arrow">
+					</td>
+				</tr>
+			</thead>
+			<tbody class="table-body">
+				<!-- Here js would insert the table -->
+			</tbody>
+		</table>
+		<div class="row justify-content-center">
+			<div id="no-data-display" class="col-4 h5">
+				<!-- Comes into play when there is no data in the table -->
+			</div>
+		</div>
+	</div>
+	<div class="row">
+	</div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+<script type="text/javascript" src="{{ url_for('static',filename='js/browseby_class_sf.js') }}"></script>
+<script type="text/javascript">var cl_code = {{cl_code|tojson|safe}}</script>
+{% endblock script %}

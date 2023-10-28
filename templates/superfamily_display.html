@@ -1,24 +1,138 @@
 {% extends 'basic_layout.html' %}
 
 {% block link_here %}
-  <link rel="stylesheet" href="{{ url_for('static',filename='css/superfamily_display.css') }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/superfamily_display.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.css">
+<!-- Add the Bootstrap CSS link here -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 {% endblock link_here %}
 
 {% block content %}
+<div class="container-sm">
+  <div class="row justify-content-center">
+    <div class="col-3 superfamily-heading">
+      SF ID: {{ sf_code }}
+    </div>
+  </div>
+</div>
+<div class="container-sm my-3 px-5 py-3 contains-everything">
+  <ul class="nav nav-tabs" id="myTabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#summary">Summary</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#chart">Taxonomic Distribution</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#da">Domain Architectures</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#members">SCOP Members</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#downloads">Downloads</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="summary">
+      <!-- Content for the summary tab -->
+      {{sf_doc[0]}}
+      
+    </div>
 
-<h1>{{ sf_code }}</h1>
-<div id="chart" class="chart"></div>
+    <div class="tab-pane" id="chart">
+      <!-- Content for the Chart tab -->
+      <div id="chart" class="chart"></div>
+    </div>
 
+    <!-- Add more tab content as needed -->
+  </div>
+</div>
 {% endblock content %}
 
-
 {% block script %}
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.20.0.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="{{ url_for('static',filename='js/superfamily_display.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/superfamily_display.js') }}"></script>
 <script type='text/javascript'>
-  var graphs = {{graphJSON | safe}};
-  Plotly.newPlot('chart',graphs,{});
-</script>
+  $(function () {
+    $('#myTabs a').click(function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+
+      // Check if the "Chart" tab is active
+      if ($(this).attr('href') === '#chart') {
+        // Initialize and render the chart here
+        var graphs = {{ graphJSON | safe}}; Plotly.newPlot('chart', graphs, {});}});});
+      if ($(this).attr('href') === '#summary') {
+        // Initialize and render the chart here
+        var sf_code = {{ sf_code }};
+        function get_description(sf_doc) {
+          let summary = $('#summary');
+          summary.html('');
+          let _id = sf_doc['_id'];
+          let des = sf_doc['des'];
+          let scop_cl = sf_doc['scop_cl'];
+          let scop_cf = sf_doc['scop_cf'];
+          let sequences = sf_doc['sequences'];
+          let tp_sequences = sf_doc['tp_sequences'];
+          let scop_da = sf_doc['scop_da'];
+          let pfam_da = sf_doc['pfam_da'];
+          let genomes = sf_doc['genomes'];
+          let sum = `<table>
+		  <tr>
+			  <th>Superfamily ID</th>
+			  <td>${_id}</td>
+		  </tr>
+		  <tr>
+			  <th>Description</th>
+			  <td>${des}</td>
+		  </tr>
+		  <tr>
+			  <th>SCOP Class ID</th>
+			  <td>${scop_cl}</td>
+		  </tr>
+		  <tr>
+			  <th>SCOP Fold ID</th>
+			  <td>${scop_cf}</td>
+		  </tr>
+		  <tr>
+			  <th>Number of Sequences</th>
+			  <td>${sequences}</td>
+		  </tr>
+		  <tr>
+			  <th>Number of True Positive Sequences</th>
+			  <td>${tp_sequences}</td>
+		  </tr>
+		  <tr>
+			  <th>Number of SCOP Domain Architecture</th>
+			  <td>${scop_da}</td>
+		  </tr>
+		  <tr>
+			  <th>Number of PFAM Domain Architecture</th>
+			  <td>${pfam_da}</td>
+		  </tr>
+		  <tr>
+			  <th>Number of Genomes</th>
+			  <td>${genomes}</td>
+		  </tr>
+		  <-- Add more rows as needed --
+	  </table>`;
+          summary.append(sum);
+        }
+        $.ajax({
+          url: '/superfamily_display/' + sf_code,
+          type: 'POST',
+          dataType: 'json',
+          success: function (response) {
+            sf_doc = response;
+            get_description(response);
+          },
+          error: function (error) {
+            console.log(error);
+          }
+        });}
+      </script>
 {% endblock script %}

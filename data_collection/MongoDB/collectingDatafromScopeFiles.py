@@ -27,7 +27,7 @@ class CollectDataFromScope:
         self.post_list = []
 
     def getClFl(self,post): # colecting class and fold information of a superfamily from the dir.cla file
-        with open("/home/ibab/sem4/project/data_gendis_3.0/dir.cla.scope.2.08-stable.txt") as dar:
+        with open("/home/user/gendis/dir.cla.scope.2.08-stable.txt") as dar:
             for line in dar:
                 if line[0] != "#":
                     li = line.split(',')
@@ -36,7 +36,7 @@ class CollectDataFromScope:
                         return
 
     def getIdDes(self): # collecting sf id and description information from the dir.cla file
-        with open("/home/ibab/sem4/project/data_gendis_3.0/dir.des.scope.2.08-stable.txt") as var:
+        with open("/home/user/gendis/dir.des.scope.2.08-stable.txt") as var:
             for line in var:
                 li = line.split("\t")
                 if line[0] != "#":
